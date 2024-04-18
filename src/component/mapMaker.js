@@ -29,11 +29,29 @@ export function genInfoMarker(_points) {
       width : 250,
       title : "Hello"
   }
-
+  var infoWindow = new window.BMapGL.InfoWindow('',opts);
+  console.log(infoWindow)
+      
   _points[1].forEach((item, i) => {
     var marker = new window.BMapGL.Marker(new window.BMapGL.Point(...item));
     window.map.addOverlay(marker);
+    function popEvent() {
+      infoWindow._config.title = _points[0][i].get('Applicant')
+      infoWindow.content =
+      '<div style="max-width:120px">'
+      + '<br/>' + _points[0][i].get('Address')
+      + '<br/>' + _points[0][i].get('FoodItems')
+      +'</div>'
+    }
 
+    marker.addEventListener('click', function () {
+        popEvent()
+        this.openInfoWindow(infoWindow);
+    });
+    marker.addEventListener('ontouchstart', function () {
+        popEvent()
+        this.openInfoWindow(infoWindow);
+    });
   });
 
 }
