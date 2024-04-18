@@ -28,7 +28,8 @@ function App() {
     }
     queryState = true
     var cen = window.map.getCenter();
-    points = await doQueryByGeo(cen.lat,cen.lng)
+    points = await doQueryByGeo(cen.lat,cen.lng)    
+    window.map.clearOverlays();
     genInfoMarker(points)
     queryState = false
   }
