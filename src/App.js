@@ -1,14 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect } from 'react';
-import { initMap,infoMarker } from "./component/mapMaker";
+import { initMap,genInfoMarker } from "./component/mapMaker";
 import { db,doQueryByGeo } from "./component/firebase";
 
 function App() {
-
+  let points = []
   useEffect(() => {
     initMap()
-    infoMarker()
+    async function init() {
+      if (points.length == 0) {
+        points = await doQueryByGeo()
+        genInfoMarker(points)
+      }else{
+        genInfoMarker(points)
+      }
+    }
+    init()
     // doQueryByGeo()
   },[])
 

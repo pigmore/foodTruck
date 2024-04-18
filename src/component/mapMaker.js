@@ -23,3 +23,17 @@ export function infoMarker() {
       this.openInfoWindow(infoWindow);
   });
 }
+
+export function genInfoMarker(_points) {
+  const opts = {
+      width : 250,
+      title : "Hello"
+  }
+
+  _points[1].forEach((item, i) => {
+    var marker = new window.BMapGL.Marker(new window.BMapGL.Point(...item));
+    window.map.addOverlay(marker);
+
+  });
+
+}
