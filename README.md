@@ -17,6 +17,12 @@ LINK: https://github.com/peck/engineering-assessment
 
 ## Map SDK
 
-* Google Map -- ask for an overseas credit account, fail 
+* Google Map -- ask for an overseas credit account, fail
 * AutoNavi   -- no overseas data outside China
 * Baidu Map  -- the only one can be implemented
+
+## Data review
+
+* base info: Applicant Address FoodItems
+* geo info: Latitude Longitude
+* additional : Status
