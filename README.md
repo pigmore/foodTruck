@@ -1,6 +1,8 @@
 # foodTruck
 A job hunt demo
-LINK: https://github.com/peck/engineering-assessment
+
+Depoly Link: http://pigmore.synology.me:8081/
+Task LINK: https://github.com/peck/engineering-assessment
 
 ## Requirement Summary
 
