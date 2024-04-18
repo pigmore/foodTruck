@@ -20,11 +20,20 @@ function App() {
     // doQueryByGeo()
   },[])
 
+  function redoQuery() {
+    
+  }
+
   return (
-    <div
-      id="allmap"
-      style={{height:'100vh'}}
-    />
+    <div>
+      <div id="allmap" style={{height:'100vh'}}></div>
+      <div className = 'tooltip'>
+        <button className = 'toolBtn'
+          onClick = {redoQuery}
+        >Refresh</button>
+      </div>
+
+    </div>
   );
 }
 
