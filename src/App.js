@@ -6,6 +6,7 @@ import { db,doQueryByGeo } from "./component/firebase";
 
 function App() {
   let points = []
+  let queryState = false
   useEffect(() => {
     initMap()
     async function init() {
@@ -20,8 +21,16 @@ function App() {
     // doQueryByGeo()
   },[])
 
-  function redoQuery() {
-    
+  async function redoQuery(){
+    console.log('cen')
+    if (queryState) {
+      return
+    }
+    queryState = true
+    var cen = window.map.getCenter();
+    points = await doQueryByGeo(cen.lat,cen.lng)
+    genInfoMarker(points)
+    queryState = false
   }
 
   return (
